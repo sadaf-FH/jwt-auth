@@ -8,8 +8,6 @@ export function generateJwtService(input: GenerateJwtInput): string {
       first_name: input.first_name,
       last_name: input.last_name,
       email_verified: input.email_verified,
-    },
-    input.not_before,
-    input.not_after
+    }
   );
 }
