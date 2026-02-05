@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { generateJwtService } from "../services/jwt.service";
 import { ApiResponseBuilder } from "../utils/apiResponse.util";
+import { ApiSuccess } from "../constants/success.catalog";
 
 export async function generateJwtController(
   req: Request,
@@ -12,10 +13,10 @@ export async function generateJwtController(
 
     return ApiResponseBuilder.success(
       res,
-      { jwt: token },
-      "JWT generated successfully"
+      ApiSuccess.TOKEN_GENERATED,
+      { jwt: token }
     );
   } catch (error) {
-    next(error); 
+    next(error);
   }
 }

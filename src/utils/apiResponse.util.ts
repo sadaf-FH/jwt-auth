@@ -1,16 +1,17 @@
 import { Response } from "express";
-import { ErrorResponse, SuccessResponse } from "../types/common.types";
+import { ErrorResponse, SuccessResponse, ApiMeta } from "../types/common.types";
 
 export class ApiResponseBuilder {
   static success<T>(
     res: Response,
+    meta: ApiMeta,
     data: T,
-    message = "Success",
     statusCode = 200
   ) {
     const response: SuccessResponse<T> = {
       success: true,
-      message,
+      code: meta.code,
+      message: meta.message,
       data,
     };
 
@@ -19,13 +20,14 @@ export class ApiResponseBuilder {
 
   static error(
     res: Response,
-    message = "Something went wrong",
+    meta: ApiMeta,
     statusCode = 500,
     errors?: unknown
   ) {
     const response: ErrorResponse = {
       success: false,
-      message,
+      code: meta.code,
+      message: meta.message,
       errors,
     };
 

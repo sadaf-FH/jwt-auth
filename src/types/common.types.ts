@@ -1,18 +1,22 @@
+export interface ApiMeta {
+  code: string;
+  message: string;
+}
+
+export interface SuccessResponse<T> extends ApiMeta {
+  success: true;
+  data: T;
+}
+
+export interface ErrorResponse extends ApiMeta {
+  success: false;
+  errors?: unknown;
+}
+
 export interface JwtStandardPayload {
   email: string;
   first_name: string;
   last_name: string;
   email_verified: boolean;
-}
-
-export interface SuccessResponse<T> {
-  success: true;
-  message: string;
-  data: T;
-}
-
-export interface ErrorResponse {
-  success: false;
-  message: string;
-  errors?: unknown;
+  customer_id: string;
 }
