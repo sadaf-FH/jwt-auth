@@ -26,6 +26,7 @@ export function signJwt(payload: JwtStandardPayload): string {
     secret,
     {
       algorithm: "HS256",
+      noTimestamp: true
     }
   );
 }
