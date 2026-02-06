@@ -5,7 +5,8 @@ export const generateJwtSchema = z.object({
   first_name: z.string().min(1),
   last_name: z.string().min(1),
   email_verified: z.boolean(),
-  customer_id: z.string().min(1)
+  customer_id: z.string().optional().nullable(), 
 });
+
 
 export type GenerateJwtInput = z.infer<typeof generateJwtSchema>;

@@ -9,7 +9,7 @@ export async function generateJwtController(
   next: NextFunction
 ) {
   try {
-    const token = await generateJwtService(req.body);
+    const token = generateJwtService(req.body);
 
     return ApiResponseBuilder.success(
       res,

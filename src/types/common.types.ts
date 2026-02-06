@@ -18,5 +18,5 @@ export interface JwtStandardPayload {
   first_name: string;
   last_name: string;
   email_verified: boolean;
-  customer_id: string;
+  customer_id?: string;
 }

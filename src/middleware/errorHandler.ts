@@ -11,7 +11,6 @@ export function errorHandler(
 ) {
   console.error(err);
 
-  // If it's our custom AppError → use its info
   if (err instanceof AppError) {
     return ApiResponseBuilder.error(
       res,
@@ -21,7 +20,6 @@ export function errorHandler(
     );
   }
 
-  // Unknown/unhandled error → fallback
   return ApiResponseBuilder.error(
     res,
     ApiErrors.INTERNAL_SERVER_ERROR,
